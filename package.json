@@ -1,0 +1,35 @@
+{
+  "name": "@dwimberger/homebridge-particleio",
+  "version": "1.0.0",
+  "description": "Particle.io plugin for homebridge: https://github.com/nfarina/homebridge",
+  "license": "ISC",
+  "keywords": [
+    "homebridge-plugin",
+    "homebridge",
+    "particle",
+    "particle photon",
+    "particle electron"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dwimberger/homebridge-particleio.git"
+  },
+  "bugs": {
+    "url": "https://github.com/dwimberger/homebridge-particleio/issues"
+  },
+  "main": "src/index.js",
+  "scripts": {
+  },
+  "engines": {
+    "node": ">=10.0.0",
+    "homebridge": ">=0.4.0"
+  },
+  "dependencies": {
+    "hashmap": "^2.4.0",
+    "particle-api-js": "^9.1.2"
+  },
+  "devDependencies": {   
+    "hap-nodejs": "^0.4.21",
+    "homebridge": "^1.3.8"
+  }
+}

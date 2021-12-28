@@ -1,0 +1,60 @@
+{
+  "bridge": {
+    "name": "Test Homebridge",
+    "username": "CC:22:3D:E3:CE:39",
+    "port": 51826,
+    "pin": "042-45-975"
+  },
+  "description": "This is an example configuration file with a Particle.io platform. It refers to a single Particle device and
+  configures 2 accessories, a switch and a temperature sensor. Configure as you please.",
+  "platforms": [
+    {
+      "platform": "ParticleIO",
+      "name": "Particle Devices",
+      "accessToken": "<<accessToken>>",
+      "particles": [
+        {
+          "deviceId": "<<deviceId>>",
+          "events": [
+            {
+              "name": "TEMPERATURES",
+              "separator": ":",
+              "contained": "TEMP1:TEMP2:TEMP3:TEMP4:TEMP5:TEMP6:TEMP7:TEMPIN",
+              "variables": true
+            },
+            {
+              "name": "VALVES",
+              "separator": ":",
+              "contained": "Valve1:Valve2:Valve3:Valve4:Valve5:Valve6"
+            }
+          ]
+        }
+      ],
+      "devices": [
+        {
+          "name": "Bathroom Heating",
+          "type": "switch",
+          "deviceId": "<<deviceId>>",
+          "get": {
+            "type": "variable",
+            "name": "VALVE6"
+          },
+          "set": {
+            "type": "function",
+            "name": "relayOnOff",
+            "args": "{STATE}:6"
+          }
+        },
+        {
+          "name": "Bathroom Outflow",
+          "type": "temperaturesensor",
+          "deviceId": "<<deviceId>>",
+          "get": {
+            "type": "variable",
+            "name": "TEMP6"
+          }
+        }
+      ]
+    }
+  ]
+}
